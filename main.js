@@ -4,12 +4,6 @@ const checkBoxHide = document.querySelector('.data_hide')
 const allProgressiveBar = document.querySelector('.wrapper-progress')
 const valueProgressive = document.querySelector('.data_value')
 
-// Ограничение input number от 0 до 100
-
-
-//--------------------
-
-
 // Добавление анимации 
 checkBoxAnimate.addEventListener('change', function(e){
     if (checkBoxAnimate.checked) {
