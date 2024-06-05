@@ -24,21 +24,19 @@ checkBoxHide.addEventListener('change', hideBar)
 //--------------------
 
 
-//Получения значения для круга
+//Получения значения для круга и проверка его диапазона
 valueProgressive.addEventListener('focusout', e => {
-	if (e.code === 'Enter') {
-        let value = valueProgressive.value
-        if (value > 100) {
-            value = 100
-            valueProgressive.value = value
-            svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
-        } else if (value < 0) {
-            value = 0
-            valueProgressive.value = value
-            svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
-        } else {
-            svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
-        }
-    }
+	let value = valueProgressive.value
+	if (value > 100) {
+		value = 100
+		valueProgressive.value = value
+		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
+	} else if (value < 0) {
+		value = 0
+		valueProgressive.value = value
+		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
+	} else {
+		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
+	}
 })
 //--------------------
