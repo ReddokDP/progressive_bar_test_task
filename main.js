@@ -25,7 +25,7 @@ checkBoxHide.addEventListener('change', hideBar)
 
 
 //Получения значения для круга
-valueProgressive.addEventListener('keyup', e => {
+valueProgressive.addEventListener('focusout', e => {
 	if (e.code === 'Enter') {
         let value = valueProgressive.value
         if (value > 100) {
