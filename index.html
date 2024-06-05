@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Test task ozon</title>
+</head>
+<body>
+    <div class="wrapper-progress">
+        <div class="progress">
+            <h1>Progress</h1>
+            <div class="circle_graph">
+                <svg class="progress__gpraph">
+                    <circle cx="100" cy="100" r="60" class="circle"></circle>
+                </svg>
+            </div>
+            <div class="progress__data">
+                <div class="progress__data_value position_block">
+                    <label class="value">
+                        <input type="number" class="data_value" min="0" max="100" step="1" placeholder="0-100" />
+                    </label>
+                    <span class="discr">Value</span>
+                </div>
+                <div class="progress__data_animate position_block">
+                    <label class="switch">
+                        <input type="checkbox" class="data_animate switch__input" />
+                        <span class="switch__slider"></span>
+                    </label>
+                    <span class="discr">Animate</span>
+                </div>
+                <div class="progress__data_hide position_block">
+                    <label class="switch">
+                        <input type="checkbox" class="data_hide switch__input" />
+                        <span class="switch__slider"></span>
+                    </label>
+                    <span class="discr">Hide</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>
