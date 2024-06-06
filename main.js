@@ -36,18 +36,18 @@ function enterValue() {
 valueProgressive.addEventListener('change', enterValue)
 //--------------------
 
-//Недо АПИ?
-function enterValueState(value) {
+//Недо АПИ
+function stateEnterValue(value) {
 	valueProgressive.value = value
-	enterValue()
+	enterValue(value)
 }
 
-function animationState() {
+function stateAnimation() {
 	checkBoxAnimate.checked = !checkBoxAnimate.checked
 	startAnimation()
 }
 
-function visibilityBlockState() {
+function stateVisibilityBlock() {
 	checkBoxHide.checked = !checkBoxHide.checked
 	hideBar()
 }
