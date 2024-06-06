@@ -5,27 +5,21 @@ const allProgressiveBar = document.querySelector('.wrapper-progress')
 const valueProgressive = document.querySelector('.data_value')
 
 // Добавление анимации 
-checkBoxAnimate.addEventListener('change', function(e){
-    if (checkBoxAnimate.checked) {
-        svgCircle.classList.add('animate')
-    } else {
-        svgCircle.classList.remove('animate')
-    }
-})
+function startAnimation() {
+	svgCircle.classList.toggle('animate', checkBoxAnimate.checked)
+}
+checkBoxAnimate.addEventListener('change', startAnimation)
 //--------------------
 
 //Скрытие блока прогресса
 function hideBar() {
-    if (checkBoxHide.checked) {
-	    allProgressiveBar.style = 'display: none'
-	}
+	allProgressiveBar.classList.toggle('hidden', checkBoxHide.checked)
 }
 checkBoxHide.addEventListener('change', hideBar)
 //--------------------
 
-
 //Получения значения для круга и проверка его диапазона
-valueProgressive.addEventListener('focusout', e => {
+function enterValue() {
 	let value = valueProgressive.value
 	if (value > 100) {
 		value = 100
@@ -38,5 +32,23 @@ valueProgressive.addEventListener('focusout', e => {
 	} else {
 		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
 	}
-})
+}
+valueProgressive.addEventListener('change', enterValue)
+//--------------------
+
+//Недо АПИ?
+function enterValueState(value) {
+	valueProgressive.value = value
+	enterValue()
+}
+
+function animationState() {
+	checkBoxAnimate.checked = !checkBoxAnimate.checked
+	startAnimation()
+}
+
+function visibilityBlockState() {
+	checkBoxHide.checked = !checkBoxHide.checked
+	hideBar()
+}
 //--------------------
