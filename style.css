@@ -14,12 +14,8 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.wrapper-progress {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+@media screen and (orientation: portrait) {
 
 .progress {
     width: 320px;
@@ -27,6 +23,66 @@ input::-webkit-inner-spin-button {
     background-color: rgb(255, 255, 255);
     border: 1px solid;
     margin: 0 auto;
+}
+
+.progress__data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 16%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.circle_graph {
+    margin-top: 10%;
+}
+
+}
+
+@media screen and (orientation: landscape) {
+
+.progress {
+    width: 568px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid;
+    margin: 0 auto;
+}
+
+.progress {
+    display: flex;
+}
+
+.progress__data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.circle_graph {
+    margin-top: 0%;
+}
+
+.progress__gpraph {
+    margin-right: 40px;
+}
+
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(630deg);
+    }
+}
+
+.wrapper-progress {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .data_value {
@@ -87,18 +143,6 @@ input::-webkit-inner-spin-button {
     transform: translateX(18px);
 }
 
-
-.progress__data{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 16%;
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-
 .circle_graph {
     display: flex;
     align-items: center;
@@ -106,7 +150,6 @@ input::-webkit-inner-spin-button {
 }
 
 .progress__gpraph {
-    margin-top: 10%;
     width: 200px;
     height: 200px;
     fill: none;
@@ -119,12 +162,6 @@ input::-webkit-inner-spin-button {
 
 .animate {
     animation: rotate 4s infinite linear;
-}
-
-@keyframes rotate {
-    100%{
-        transform: rotate(630deg);
-    }
 }
 
 .position_block {
