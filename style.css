@@ -21,7 +21,6 @@ input::-webkit-inner-spin-button {
     width: 320px;
     height: 568px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid;
     margin: 0 auto;
 }
 
@@ -47,7 +46,6 @@ input::-webkit-inner-spin-button {
     width: 568px;
     height: 320px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid;
     margin: 0 auto;
 }
 
@@ -67,7 +65,7 @@ input::-webkit-inner-spin-button {
 }
 
 .progress__gpraph {
-    margin-right: 40px;
+    margin-right: 70px;
 }
 
 }
