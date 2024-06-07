@@ -158,10 +158,19 @@ input::-webkit-inner-spin-button {
 }
 
 .animate {
-    animation: rotate 5s ease-in-out infinite  normal;
+    animation: rotate 12s ease-in-out infinite  normal;
 }
 
 @keyframes rotate {
+    25%{
+        transform: rotate(330deg);
+    }
+    50%{
+        transform: rotate(430deg);
+    }
+    75%{
+        transform: rotate(530deg);
+    }
     100%{
         transform: rotate(630deg);
     }
