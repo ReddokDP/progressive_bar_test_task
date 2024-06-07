@@ -3,7 +3,7 @@ const checkBoxAnimate = document.querySelector('.data_animate');
 const checkBoxHide = document.querySelector('.data_hide')
 const allProgressiveBar = document.querySelector('.wrapper-progress')
 const valueProgressive = document.querySelector('.data_value')
-const svgCircles = document.querySelector('.circles')
+const svgCircles = document.querySelector('.circle')
 
 // Добавление анимации 
 function startAnimation() {
