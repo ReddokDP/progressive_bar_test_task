@@ -70,11 +70,7 @@ input::-webkit-inner-spin-button {
 
 }
 
-@keyframes rotate {
-    100%{
-        transform: rotate(630deg);
-    }
-}
+
 
 .wrapper-progress {
     height: 100vh;
@@ -140,6 +136,9 @@ input::-webkit-inner-spin-button {
 .switch__input:checked + .switch__slider::before {
     transform: translateX(18px);
 }
+.circle {
+    transition: all 1s ease-out
+}
 
 .circle_graph {
     display: flex;
@@ -154,12 +153,18 @@ input::-webkit-inner-spin-button {
     stroke: #005CFF;
     stroke-width: 10px;
     stroke-dasharray: 377px;
-    stroke-dashoffset: calc(377 - (377 * 0) / 100);
+    stroke-dashoffset: calc(377 - (377 * 60) / 100);
     transform: rotate(270deg);
 }
 
 .animate {
-    animation: rotate 4s infinite linear;
+    animation: rotate 5s ease-in-out infinite  normal;
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(630deg);
+    }
 }
 
 .position_block {
