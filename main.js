@@ -1,19 +1,20 @@
-const svgCircle = document.querySelector('.progress__gpraph');
+const svgCirclePrgGrph = document.querySelector('.progress__gpraph');
 const checkBoxAnimate = document.querySelector('.data_animate');
 const checkBoxHide = document.querySelector('.data_hide')
 const allProgressiveBar = document.querySelector('.wrapper-progress')
 const valueProgressive = document.querySelector('.data_value')
+const svgCircles = document.querySelector('.circles')
 
 // Добавление анимации 
 function startAnimation() {
-	svgCircle.classList.toggle('animate', checkBoxAnimate.checked)
+	svgCirclePrgGrph.classList.toggle('animate', checkBoxAnimate.checked)
 }
 checkBoxAnimate.addEventListener('change', startAnimation)
 //--------------------
 
 //Скрытие блока прогресса
 function hideBar() {
-	allProgressiveBar.classList.toggle('hidden', checkBoxHide.checked)
+	svgCircles.classList.toggle('hidden', checkBoxHide.checked)
 }
 checkBoxHide.addEventListener('change', hideBar)
 //--------------------
@@ -24,19 +25,19 @@ function enterValue() {
 	if (value > 100) {
 		value = 100
 		valueProgressive.value = value
-		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
+		svgCirclePrgGrph.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
 	} else if (value < 0) {
 		value = 0
 		valueProgressive.value = value
-		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
+		svgCirclePrgGrph.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
 	} else {
-		svgCircle.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
+		svgCirclePrgGrph.style = `stroke-dashoffset: calc(377 - (377 * ${value}) / 100)`
 	}
 }
 valueProgressive.addEventListener('change', enterValue)
 //--------------------
 
-//Недо АПИ
+//Недо АПИ?
 function stateEnterValue(value) {
 	valueProgressive.value = value
 	enterValue(value)
