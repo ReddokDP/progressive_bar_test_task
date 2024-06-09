@@ -1,33 +1,51 @@
-const svgCircleProgressBar = document.querySelector('.progress__gpraph');
-const checkBoxAnimate = document.querySelector('.data_animate');
+const svgCircleProgressBar = document.querySelector('.progress__graph')
+const svgCircleProgressBarBorder = document.querySelector('.progress__graph_border')
+const checkBoxAnimate = document.querySelector('.data_animate')
 const checkBoxHide = document.querySelector('.data_hide')
 const allProgressiveBar = document.querySelector('.wrapper-progress')
 const valueProgressive = document.querySelector('.data_value')
-const svgCircles = document.querySelector('.circle')
+const svgCircle = document.querySelector('.circle')
+const svgCircleBorder = document.querySelector('.circle-border')
+let intervalId = null
 
-// Добавление анимации 
-function startAnimation() {
-	svgCircleProgressBar.classList.toggle('animate', checkBoxAnimate.checked)
+function animationInterval(value) {
+	if (value) {
+		svgCircleProgressBarBorder.classList.add('animate')
+		setTimeout(() => {
+			svgCircleProgressBarBorder.classList.remove('animate')
+		}, 2000)
+		intervalId = setInterval(() => {
+			svgCircleProgressBarBorder.classList.add('animate')
+			setTimeout(() => {
+				svgCircleProgressBarBorder.classList.remove('animate')
+			}, 2000)
+		}, 4000)
+	} else {
+		svgCircleProgressBarBorder.classList.remove('animate')
+		clearInterval(intervalId)
+	}
 }
-checkBoxAnimate.addEventListener('change', startAnimation)
-//--------------------
 
-//Скрытие блока прогресса
+function startAnimation() {
+	animationInterval(checkBoxAnimate.checked) 
+}
+
+checkBoxAnimate.addEventListener('change', startAnimation)
+
 function hideBar() {
-	svgCircles.classList.toggle('hidden', checkBoxHide.checked)
+	svgCircle.classList.toggle('hidden', checkBoxHide.checked)
+	svgCircleBorder.classList.toggle('hidden', checkBoxHide.checked)
 }
 checkBoxHide.addEventListener('change', hideBar)
-//--------------------
 
-//Получения значения для круга и проверка его диапазона
-function enterValue() {
-	let enteredValue = valueProgressive.value;
-	const radiusCircle = 377;
+function enterValue(event) {
+	let enteredValue = event.target.value
+	const radiusCircle = 377
 	if (enteredValue > 100) {
 		enteredValue = 100
 		valueProgressive.value = enteredValue
 		svgCircleProgressBar.style = `stroke-dashoffset: calc(${radiusCircle} - (${radiusCircle} * ${enteredValue}) / 100)`
-	} else if (enteredValue < 0){
+	} else if (enteredValue < 0) {
 		enteredValue = 0
 		valueProgressive.value = enteredValue
 		svgCircleProgressBar.style = `stroke-dashoffset: calc(${radiusCircle} - (${radiusCircle} * ${enteredValue}) / 100)`
@@ -38,9 +56,7 @@ function enterValue() {
 	}
 }
 valueProgressive.addEventListener('change', enterValue)
-//--------------------
 
-//Недо АПИ?
 function stateEnterValue(value) {
 	valueProgressive.value = value
 	enterValue(value)
@@ -55,4 +71,3 @@ function stateVisibilityBlock() {
 	checkBoxHide.checked = !checkBoxHide.checked
 	hideBar()
 }
-//--------------------
