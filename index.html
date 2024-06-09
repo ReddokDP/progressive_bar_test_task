@@ -7,12 +7,15 @@
     <title>Test task</title>
 </head>
 <body>
-    <div class="wrapper-progress">
+    <div class="wrapper_progress">
         <div class="progress">
             <h1>Progress</h1>
             <div class="circle_graph">
-                <svg class="progress__gpraph">
-                    <circle cx="100" cy="100" r="60" class="circle"></circle>
+                <svg class="progress__graph_border">
+                    <circle cx="100" cy="100" r="60" class="circle-border"></circle>
+                    <svg class="progress__graph">
+                        <circle cx="100" cy="100" r="60" class="circle"></circle>
+                    </svg>
                 </svg>
             </div>
             <div class="progress__data">
@@ -20,21 +23,21 @@
                     <label class="value">
                         <input type="number" class="data_value" placeholder="0-100" value="60" />
                     </label>
-                    <span class="discr">Value</span>
+                    <span>Value</span>
                 </div>
                 <div class="progress__data_animate position_block">
                     <label class="switch">
                         <input type="checkbox" class="data_animate switch__input" />
                         <span class="switch__slider"></span>
                     </label>
-                    <span class="discr">Animate</span>
+                    <span>Animate</span>
                 </div>
                 <div class="progress__data_hide position_block">
                     <label class="switch">
                         <input type="checkbox" class="data_hide switch__input" />
                         <span class="switch__slider"></span>
                     </label>
-                    <span class="discr">Hide</span>
+                    <span>Hide</span>
                 </div>
             </div>
         </div>
