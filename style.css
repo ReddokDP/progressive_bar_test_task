@@ -6,7 +6,13 @@
     font-size: 16px;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
-}
+    --color-blue: #005CFF;
+    --color-black: #000;
+    --color-white: #FFF;
+    --color-gray: #D4DCE4;
+    --circle-radius-onpx: 377px;
+    --circle-radius: 377;
+}  
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -14,17 +20,15 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-
 @media screen and (orientation: portrait) {
-
 .progress {
     width: 320px;
     height: 568px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-white);
     margin: 0 auto;
 }
 
-.progress__data{
+.progress__data {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,15 +41,13 @@ input::-webkit-inner-spin-button {
 .circle_graph {
     margin-top: 10%;
 }
-
 }
 
 @media screen and (orientation: landscape) {
-
 .progress {
     width: 568px;
     height: 320px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-white);
     margin: 0 auto;
 }
 
@@ -53,7 +55,7 @@ input::-webkit-inner-spin-button {
     display: flex;
 }
 
-.progress__data{
+.progress__data {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,15 +66,12 @@ input::-webkit-inner-spin-button {
     margin-top: 0%;
 }
 
-.progress__gpraph {
-    margin-right: 70px;
+.progress__graph_border {
+    margin-right: 50px;
+}
 }
 
-}
-
-
-
-.wrapper-progress {
+.wrapper_progress {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -82,8 +81,8 @@ input::-webkit-inner-spin-button {
 .data_value {
     width: 52px;
     height: 34px;
-    border-radius: 23px;
-    border: 2px solid black;
+    border-radius: 24px;
+    border: 2px solid var(--color-black);
     text-align: center;
 }
 
@@ -112,8 +111,8 @@ input::-webkit-inner-spin-button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(212, 220, 228);
-    border-radius: 23px;
+    background-color: var(--color-gray);
+    border-radius: 24px;
 }
 
 .switch__slider::before {
@@ -124,13 +123,13 @@ input::-webkit-inner-spin-button {
     bottom: 2px;
     width: 30px;
     height: 30px;
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 50%;
     transition: 0.4s;
 }
 
 .switch__input:checked + .switch__slider {
-    background-color: #005CFF;
+    background-color: var(--color-blue);
 }
 
 .switch__input:checked + .switch__slider::before {
@@ -146,34 +145,34 @@ input::-webkit-inner-spin-button {
     justify-content: center;
 }
 
-.progress__gpraph {
+.progress__graph {
+    position: relative;
+    z-index: 5;
     width: 200px;
     height: 200px;
     fill: none;
-    stroke: #005CFF;
+    stroke: var(--color-blue);
     stroke-width: 10px;
-    stroke-dasharray: 377px;
-    stroke-dashoffset: calc(377 - (377 * 60) / 100);
+    stroke-dasharray: var(--circle-radius-onpx);
+    stroke-dashoffset: calc(var(--circle-radius) - (var(--circle-radius) * 60) / 100);
+    transform: rotate(270deg);
+}
+
+.progress__graph_border {
+    position: relative;
+    z-index: 10;
+    width: 200px;
+    height: 200px;
+    fill: none;
+    stroke: var(--color-gray);
+    stroke-width: 10px;
+    stroke-dasharray: var(--circle-radius-onpx);
+    stroke-dashoffset: calc(var(--circle-radius-onpx) - (var(--circle-radius-onpx) * 100) / 100);
     transform: rotate(270deg);
 }
 
 .animate {
-    animation: rotate 12s ease-in-out infinite  normal;
-}
-
-@keyframes rotate {
-    25%{
-        transform: rotate(330deg);
-    }
-    50%{
-        transform: rotate(430deg);
-    }
-    75%{
-        transform: rotate(530deg);
-    }
-    100%{
-        transform: rotate(630deg);
-    }
+    animation: rotate 2s ease-in-out normal;
 }
 
 .position_block {
@@ -183,4 +182,10 @@ input::-webkit-inner-spin-button {
 
 .hidden {
     display: none;
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(630deg);
+    }
 }
